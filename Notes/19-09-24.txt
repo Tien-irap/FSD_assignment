@@ -1,0 +1,7 @@
+Django works on MVT architecture, i.e. Model	View	Template
+
+RUN SERVER
+python manage.py <runserver>
+
+MAKE NEW APP
+python manage.py startapp <appname>
