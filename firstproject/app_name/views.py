@@ -7,4 +7,5 @@ def app_name(request):
     return HttpResponse("<h1> This is an Application </h1>")
 
 def template_data(request):
-    return render(request, "template1.html")
+    name = "CMRIT"
+    return render(request, "template1.html", {"backend_data" : name})
