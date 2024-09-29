@@ -1,0 +1,16 @@
+Django runs on MVT architecture,
+Aka Model VIEW TEMPLATE
+
+*Model: Is used to call the functions given by the user
+Eg: Routing url/app1
+
+Django checks the path 'app1' and looks for a match in the urls.py function.
+Consisting of path('path/', function)
+
+*
+
+Step 1: We add our URL to the 'urls.py' file in "project1". This serves as the hub for all our URLs in the entire project
+Step 2: we add a file to the "app1" named 'urls.py'. This serves as the hub for all our URLs in the application
+        >We copy it over but then we remove the admin path
+Step 3: We then go to views.py and then we create our view
+Step 4: We import "include" method to access the app1 files

@@ -1,0 +1,16 @@
+Make sure to navigate to folder and activate using the following commands
+
+*python -m venv env
+*Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+*.\env\Scripts\Activate
+
+Now we create our first project, using:-
+"django-admin startproject <projectname>"
+
+Then we cd to the project file and then run the manage.py script.
+"python manage.py startapp <appname>"
+
+Now we can run it by doing
+"python manage.py runserver"
+
+By default Django uses SQLite Database, we have to change it to work on MongoDB later into

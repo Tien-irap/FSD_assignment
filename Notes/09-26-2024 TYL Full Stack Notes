@@ -1,0 +1,18 @@
+Today we're gonna be pasing the entire data as opposed to just a single string
+
+We pass an array by using the following.
+
+in Views.py
+a = ['abc','def','ghi']
+
+and
+
+in template1.html
+<table>
+    <tr>
+        {%for elements in array%}
+            <td> {{elements}} </td>
+        {% endfor %}
+    </tr>
+</table>
+

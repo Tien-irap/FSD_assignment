@@ -1,0 +1,21 @@
+Frontend : HTML
+
+Backend : Django
+
+We see that when we add Templates, we connect the two of em.
+Currently we can load templates which is good
+
+But now, how would we render a value from the backend into the Frontend
+eg:
+
+name = "Kaio"
+Which we got after reading a file, now we want to print it on the HTML Frontend
+HOw we do it is:-
+
+BACKEND:
+'''return render(request, 'template1.html', {"backend_data": name})'''
+
+FRONTEND
+{{backend_data}}
+
+This outputs the value of 'backend_data', into the page

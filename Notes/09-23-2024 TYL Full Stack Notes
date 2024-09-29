@@ -1,0 +1,17 @@
+So previously we went to views.py
+One Issue is that we have to return HTML files manually.
+But there are nxn number of HTML lines so to avoid this we are going to return a HTML file called a template.
+
+-We store templates in a folder. And call on them using a templateData function.
+*We also make sure to tell the project where our templates are, 
+'DIRS': [os.path.join(BASE_DIR,'templates')],
+*and again make a provision in the urls.py File
+
+-We make a template, template1.html And 
+*then do html:5 to generate the boilerplate and add our little <h1> Tag inside there.
+
+
+So it seems that how it goes is that. it goes to
+"project1/urls.py"
+from that we include "app1/urls.py"
+And in that we have our **data** and **template**
