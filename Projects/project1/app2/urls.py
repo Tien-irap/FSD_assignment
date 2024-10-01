@@ -22,4 +22,5 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('data/', views.app_data, name="Application 2"), #Call app_data function
+    path('api_data/', views.rest_api_data, name="Rest API Example")
 ]

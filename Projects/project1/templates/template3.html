@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <title>Rest API Data</title>
+    <table border=1>
+        <h1 style="text-align: center;">Rest API Data</h1>
+        {%for objs in data%}
+        <tr>
+            <td>{{objs.postId}}</td>
+            <td>{{objs.id}}</td>
+            <td>{{objs.name}}</td>
+            <td>{{objs.email}}</td>
+            <td>{{objs.body}}</td>  
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

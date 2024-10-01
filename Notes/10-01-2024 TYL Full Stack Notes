@@ -1,0 +1,30 @@
+https://jsonplaceholder.typicode.com/comments
+
+We Print the data onto the page
+Using Restapi
+
+Printing onto table is the same:-
+<table border=1>
+    <h1 style="text-align: center;">Rest API Data</h1>
+    {%for objs in data%}
+    <tr>
+        <td>{{objs.postId}}</td>
+        <td>{{objs.id}}</td>
+        <td>{{objs.name}}</td>
+        <td>{{objs.email}}</td>
+        <td>{{objs.body}}</td>  
+    </tr>
+        {% endfor %}
+</table>
+
+WE import requests and json
+Then do requests.get() and load the data into the variable
+
+-res = requests.get('http://jsonplaceholder.typicode.com/comments')
+-data = json.loads(res.text)
+
+Then output just like last time!
+
+-return render(request,'template3.html',{"data":data})
+
+I've done this in app2. So check app2.views
