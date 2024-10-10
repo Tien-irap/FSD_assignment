@@ -1,0 +1,14 @@
+CSS selectors:-
+
+-element: p{ ... }
+-name: #id{ ... }
+-class: .class{ ... }
+
+They can even be combined with class like so
+
+-p.class { ... }
+-div.class { ... }
+
+And you even have the ability to make it global
+
+-global *{ ... }

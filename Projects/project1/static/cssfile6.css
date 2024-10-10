@@ -1,0 +1,19 @@
+*{
+    font-family: 'Lucida Sans';
+}
+
+p{
+    font-size: 25px;
+}
+
+#id_selector{
+    color: brown;
+}
+
+.class_selector{
+    color: darkcyan;
+}
+
+div.class_selector{
+    color: aquamarine
+}

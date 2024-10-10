@@ -6,7 +6,7 @@ def app_data(request):
     return render(request,"template1.html")
 
 def template_data(request):
-    return render(request,"template4.html")
+    return render(request,"template6.html")
 
 def api_data(request):
     data = [
