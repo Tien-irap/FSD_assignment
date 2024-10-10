@@ -1,0 +1,18 @@
+Make the font in Red
+
+h1 {
+    color : red
+}
+
+Step 1: We create a 'static' folder where manage.py is 
+Step 2: Add the CSS file in it
+Step 3: Go to settings.py and set Directory to
+        STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+        You have to make a new variable
+        
+Step 4: Then link the CSS file to the HTML file
+        
+        {% load static %}
+        <link rel="stylesheet", href = "{% static 'cssfile1.css' %}">
+
+        in the header file

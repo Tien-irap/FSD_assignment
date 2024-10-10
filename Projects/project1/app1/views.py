@@ -3,11 +3,10 @@ from django.shortcuts import render
 
 # Create your views here.
 def app_data(request):
-    return HttpResponse("<h1>This is App1 data</h1>")
+    return render(request,"template1.html")
 
 def template_data(request):
-    name = 'CMRIT'
-    return render(request, 'template1.html', {"backend_data": name,"array":['ABC','DEF','GHI']})
+    return render(request,"template4.html")
 
 def api_data(request):
     data = [
@@ -49,3 +48,6 @@ def api_data(request):
     }
     ]
     return render(request,'template2.html',{"data":data})
+
+def response_page(request):
+    return render(request,"template5.html")

@@ -22,6 +22,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('data/', views.app_data, name="Application 1"), #Call app_data function
-    path('template/', views.template_data, name="Template Data"), #Call Template function
-    path('apidata/',views.api_data,name="Api Data")
+    path('templates/',views.template_data,name="Template Data"),
+    path('apidata/',views.api_data,name="Api Data"),
+    path('responsive_page/',views.response_page,name="Response Page")
 ]

@@ -4,16 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet", href = "{% static 'cssfile1.css' %}">
 </head>
 <body>
-    <h1>This is Template Data</h1>
-    Data received from backend is {{backend_data}}
-    <table border=1>
-        <tr>
-            {%for elements in array%}
-                <td> {{elements}} </td>
-            {% endfor %}
-        </tr>
-    </table>
+    <h1>This is Application 1 data</h1>
 </body>
 </html>

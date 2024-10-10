@@ -1,0 +1,23 @@
+For an application to be considered responsive it should fit it's screen size and UI to fit any screen size
+
+To achieve this we can use CSS parameters
+or use a CSS @media 
+
+Measurements we can use for CSS parameters are
+font-size:  10px
+            10%
+            10em
+            ...
+
+We generally put more emphasis on the width,
+Because the Height can be modified by making it scrollable
+But we are locked by the width
+
+To handle this we have:-
+-vertical width(vw)
+-vertical height(vh)
+
+Eg: font-size: 10vw
+               10vh
+
+We use vertical width and height to display large elements
