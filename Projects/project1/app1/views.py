@@ -51,3 +51,6 @@ def api_data(request):
 
 def response_page(request):
     return render(request,"template5.html")
+
+def login_page(request):
+    return render(request,"login_template.html")

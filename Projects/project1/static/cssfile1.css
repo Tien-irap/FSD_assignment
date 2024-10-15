@@ -1,1 +1,8 @@
-h1{color: red;}
+h1{
+    width: 10%;
+    text-align: center;
+    margin: 100px 0 0 10vw;
+    padding: 10px 10px 10px 10px;
+    background-color: black;
+    color: red;
+}

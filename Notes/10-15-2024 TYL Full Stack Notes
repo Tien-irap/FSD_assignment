@@ -1,0 +1,41 @@
+CSS Box Model
+
+-It aligns your data with specific locations on the webpage
+-It is usually measured in Pixels
+-There are four levels
+
+outermost - margin
+          - border
+          - padding
+innermost - content
+
+i) Margin
+The margin determines it's size outside the content.
+This is to push it away from the edges
+
+So the margin value is generally quite high 
+
+ii) Border
+The space between the margin and the element.
+Generally ranges only between a few pixels
+
+Used for border operations
+
+iii) Padding
+The padding takes all the attributes of the background.
+It is the distance between the content and the background
+Generally we make the padding a bit more so that all our buttons
+Don't look little. Even if the text is.
+
+iv) Content
+This defines the actual text content that is in our page
+
+We can assign these by using CSS tags
+Eg:
+
+form{
+    padding: 20px 20px 20px 20px;
+    //Order: top right bottom left;
+    OR
+    //Order: top-bottom right-left;
+}

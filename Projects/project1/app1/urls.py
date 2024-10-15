@@ -24,5 +24,6 @@ urlpatterns = [
     path('data/', views.app_data, name="Application 1"), #Call app_data function
     path('templates/',views.template_data,name="Template Data"),
     path('apidata/',views.api_data,name="Api Data"),
-    path('responsive_page/',views.response_page,name="Response Page")
+    path('responsive_page/',views.response_page,name="Response Page"),
+    path('login_page/',views.login_page,name="Login Page")
 ]
