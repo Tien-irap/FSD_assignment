@@ -20,7 +20,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('data/', views.app_data, name="Application 1"), #Call app_data function
     path('templates/',views.template_data,name="Template Data"),
     path('apidata/',views.api_data,name="Api Data"),

@@ -1,0 +1,21 @@
+*We started by accessing /admin
+
+*then we did 
+python manage.py createsuperuser
+
+It failed, so we had to do
+python manage.py migrate
+
+*Then we did
+python manage.py createsuperuser
+
+*And we had to enter the following fields
+Username (leave blank to use 'mypc'): srxii
+Email address: jonat146@gmail.com
+Password: ILIkari1@
+Password (again): ILIkari1@
+
+*Now we run our server like normal
+python manage.py runserver
+
+Now we can log in with our super user and even add more users

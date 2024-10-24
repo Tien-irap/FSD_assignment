@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Template</title>
+</head>
+<body>
+    <h1>Passing Data from HTML Form to Django(Backend)</h1>
+    <form method="post" action="">
+        {% csrf_token %} <!--Cross-Site Request Forgey-->
+        <input type="text" id="data" name="inputData">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

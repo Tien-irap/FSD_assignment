@@ -1,0 +1,7 @@
+We create a HTML form and send the data to backend
+
+<form method="post" action="">
+    {% csrf_token %} <!--Cross-Site Request Forgey-->
+    <input type="text" id="data" name="data">
+    <button type="submit">Submit</button>
+</form>
