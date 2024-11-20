@@ -54,3 +54,13 @@ def response_page(request):
 
 def login_page(request):
     return render(request,"login_template.html")
+
+from .models import collection
+
+def handle_mongo(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        collection.insert_one({'name':name})
+    response = collection.find({})
+    print(response)
+    return render(request,"mongo_form.html",{'dbdata':response})

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mongo Form Data</title>
+</head>
+<body>
+    <form method="post" action="">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Submit</button>
+    </form>
+    <ul>
+        {% for names in dbdata %}
+            <li>{{names.name}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,19 @@
+Assignment,
+
+Login->Dashboard->Employee List,
+
+Allows you to add delete and edit employee details
+
+We create collections in Database
+
+20th November Login FrontEnd
+22nd November Login BackEnd
+23rd November Dashboard FrontEnd
+26th November Dashboard BackEnd
+27th November Dashboard BackEnd
+3rd December Add Employees FrontEnd
+4th December Add Employee BackEnd
+5th December Employee List FrontEnd
+6th December Employee List FrontEnd
+10th December Edit Employee BackEnd
+20th December Final Submission Date

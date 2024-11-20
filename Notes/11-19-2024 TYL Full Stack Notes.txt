@@ -1,0 +1,21 @@
+Mongo DB is not inherently supported in django
+SO we have to input a different Object Relational Mapping
+
+We will use the library Pymongo, so which is stable.
+
+In Today's class we try out basic DB functions
+
+1> We Start by commenting the default SQL Lite Declaration
+2> Create a db_connection.py file in the same folder as your manage.py script
+
+3> We run a DATABASE connection in MongoDB compass
+
+4> Go to Models.py and type in
+
+```
+from db_connection import db
+
+# Create your models here
+collection = db['data']
+```
+

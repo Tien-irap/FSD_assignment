@@ -24,5 +24,6 @@ urlpatterns = [
     path('templates/',views.template_data,name="Template Data"),
     path('apidata/',views.api_data,name="Api Data"),
     path('responsive_page/',views.response_page,name="Response Page"),
-    path('login_page/',views.login_page,name="Login Page")
+    path('login_page/',views.login_page,name="Login Page"),
+    path('mongo_page/',views.handle_mongo,name="Mongo Form")
 ]
