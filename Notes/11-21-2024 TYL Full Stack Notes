@@ -1,0 +1,18 @@
+Today I figured out how to use Session Variables.
+
+They're really neat. They can store information about a session.
+You can either use Cookies, Cache or Database to store them.
+
+Cookies: Stay on the Users device, in the form of Cookies
+Cache: Stays on the users device as long as page is open
+Database: Stays in the Database and is periodically cleared out after(default 2 weeks)
+
+I like Cache, so I'm sticking with that
+
+
+To set up a session variable you need to go to settings.py
+and
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache' #For Cache
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies' #For Cookies
+SESSION_ENGINE = 'django.contrib.sessions.backends.db' #For Database
