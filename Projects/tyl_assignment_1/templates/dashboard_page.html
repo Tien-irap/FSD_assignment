@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href = "{% static 'dashboard_style.css' %}">
+    <link rel="shortcut icon" href="{% static 'logo.ico' %}"/>
 </head>
 <body>
-    <h1>DashBoard Page</h1>
+    <div class="navbar">
+        <ul>
+            <li><a href="{% url 'Dashboard Page' %}" class="button">Home</a></li>
+            <li><a href="{% url 'Employee List Page' %}" class="button">Employee List</a></li>
+            <li><a href="#" class="button">{{ username }}</a></li>
+            <li><a href="{% url 'Logout Page' %}" class="button">Logout</a></li>
+        </ul>
+    </div>
+    <div class="dashboard-bar">
+        <h2>Dashboard</h2>
+    </div>
+    <div class="main-content">
+        <h1>Welcome Admin Panel</h1>
+    </div>
 </body>
 </html>

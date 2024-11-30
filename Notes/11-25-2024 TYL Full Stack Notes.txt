@@ -1,0 +1,23 @@
+Subject Evaluation Guidelines
+
+20 - IAT-1
+20 - IAT-2
+20 - Attendance
+10 - Assignment
+30 - Mini Project
+-----------------
+100
+
+Mini Project Evaluation:-
+50 - Present(Demo)
+50 - Report(Soft, Based on Format)
+------------------
+100
+
+
+Assigment Evaluation:-
+Front End - 10
+BackEnd -   10
+Database -  10
+--------------
+            30
