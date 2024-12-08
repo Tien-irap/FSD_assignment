@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
-from .models import login_details
+from .models import login_details,employee_details
 import random
 
 # Create your views here.
@@ -9,9 +9,6 @@ def login_page(request):
         #Get Data from the fields
         username = request.POST.get('username')
         password = request.POST.get('password')
-        
-        # Register
-        # login_details.insert_one({'f_sno':random.getrandbits(63),'f_userName':username,'f_Pwd':password})
         
         # Find Directory
         response = login_details.find_one({'f_userName':username})
@@ -37,4 +34,16 @@ def dashboard_page(request):
     return redirect("Login Page")
 
 def employee_list_page(request):
-    return render(request,'employee_list.html')
+    username = request.session.get('logged_user', False) 
+    if username:
+        return render(request,'employee_list.html',{'username':username,
+                                                    'employee_details':employee_details.find({})})
+    
+    return redirect("Login Page")
+
+def employee_create_page(request):
+    username = request.session.get('logged_user', False) 
+    if username:
+        return render(request,'create_employee_page.html',{'username':username})
+    
+    return redirect("Login Page")

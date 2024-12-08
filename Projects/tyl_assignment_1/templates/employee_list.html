@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee List</title>
     {% load static %}
-    <link rel="stylesheet" href = "{% static 'employee_list.css' %}">
+    <link rel="stylesheet" href="{% static 'employee_list.css' %}">
     <link rel="shortcut icon" href="{% static 'logo.ico' %}"/>
 </head>
-<body>
+<body onload="filterTable()">
     <div class="navbar">
         <ul>
             <li><a href="{% url 'Dashboard Page' %}" class="button">Home</a></li>
             <li><a href="{% url 'Employee List Page' %}" class="button">Employee List</a></li>
-            <li><a href="#" class="button">{{ username }}</a></li>
+            <li><a href="#" class="button ">{{ username }}</a></li>
             <li><a href="{% url 'Logout Page' %}" class="button">Logout</a></li>
         </ul>
     </div>
@@ -24,7 +24,19 @@
     
     <div class="main-content">
         <h1>Employee Details</h1>
-        <table>
+        
+        <!-- Create Employee Button -->
+        <div class="create-employee-button">
+            <a href="{% url 'Create Employee Page' %}" class="button">Create Employee</a>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search by name or email..." onkeyup="filterTable()">
+            <span>Count: <span id="count"></span></span>
+        </div>
+
+        <table id="employeeTable">
             <thead>
                 <tr>
                     <th>Unique ID</th>
@@ -40,25 +52,51 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Example Row -->
+                {% for employee_info in employee_details %}
                 <tr>
-                    <td>1</td>
-                    <td><img src="{% static 'path_to_image.jpg' %}" alt="Employee Image" width="50" height="50"></td>
-                    <td>John Doe</td>
-                    <td>john@example.com</td>
-                    <td>1234567890</td>
-                    <td>Manager</td>
-                    <td>Male</td>
-                    <td>Course A</td>
-                    <td>2023-01-01</td>
+                    <td>{{ employee_info.f_Id }}</td>
+                    <td><img src="{% static employee_info.f_Image %}" alt="Example Image" width="50" height="50"></td>
+                    <td>{{ employee_info.f_Name }}</td>
+                    <td>{{ employee_info.f_Email }}</td>
+                    <td>{{ employee_info.f_Mobile }}</td>
+                    <td>{{ employee_info.f_Designation }}</td>
+                    <td>{{ employee_info.f_gender }}</td>
+                    <td>{% for employee_course in employee_info.f_Course %}{{employee_course}}<br>{% endfor %}</td>
+                    <td>{{ employee_info.f_Createdate }}</td>
                     <td class="action-buttons">
                         <a href="" class="button">Edit</a>
                         <a href="" class="button" onclick="return confirm('Are you sure you want to delete this employee?');">Delete</a>
                     </td>
                 </tr>
-                <!-- Add more rows as needed -->
+                {% endfor %}
             </tbody>
         </table>
     </div>
+
+    <script>
+        function filterTable() {
+            const input = document.getElementById("search");
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById("employeeTable");
+            const tr = table.getElementsByTagName("tr");
+            let visibleCount = 0;
+
+            for (let i = 1; i < tr.length; i++) {
+                const tdName = tr[i].getElementsByTagName("td")[2]; // Get Name
+                const tdEmail = tr[i].getElementsByTagName("td")[3]; // Get Email
+                if (tdName || tdEmail) {
+                    const txtValueName = tdName.textContent || tdName.innerText;
+                    const txtValueEmail = tdEmail.textContent || tdEmail.innerText;
+                    if (txtValueName.toLowerCase().includes(filter) || txtValueEmail.toLowerCase().includes(filter)) {
+                        tr[i].style.display = "";
+                        visibleCount++;
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+            document.getElementById("count").textContent = visibleCount;
+        }
+    </script>
 </body>
 </html>

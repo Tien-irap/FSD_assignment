@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'create_employee.css' %}">
+    <link rel="shortcut icon" href="{% static 'logo.ico' %}"/>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="{% url 'Dashboard Page' %}" class="button">Home</a></li>
+            <li><a href="{% url 'Employee List Page' %}" class="button">Employee List</a></li>
+            <li><a href="#" class="button">{{ username }}</a></li>
+            <li><a href="{% url 'Logout Page' %}" class="button">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="dashboard-bar">
+        <h2>Employee List</h2>
+    </div>
+
+    <div class="create-employee">
+        <h3>Create Employee</h3>
+        <form action="{% url 'Create Employee Page' %}" method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="mobile">Mobile No.:</label>
+                <input type="text" id="mobile" name="mobile" required>
+            </div>
+            <div>
+                <label for="designation">Designation:</label>
+                <select id="designation" name="designation" required>
+                    <option value="Manager">Manager</option>
+                    <option value="HR">HR</option>
+                    <option value="Sales">Sales</option>
+                </select>
+            </div>
+            <div>
+                <label>Gender:</label>
+                <label><input type="radio" name="gender" value="Male" required> Male</label>
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+                <label><input type="radio" name="gender" value="Other"> Other</label>
+            </div>
+            <div>
+                <label>Course:</label>
+                <label><input type="checkbox" name="course" value="MBA">MBA</label>
+                <label><input type="checkbox" name="course" value="BCA">BCA</label>
+                <label><input type="checkbox" name="course" value="BSC">BSC</label>
+            </div>
+            <div>
+                <label for="image">Image Upload:</label>
+                <input type="file" id="image" name="image" accept="image/*" require d>
+            </div>
+            <div>
+                <button type="submit" class="button">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
