@@ -172,7 +172,7 @@ def edit_employee(request, employee_id):
         if not employee:
             return HttpResponse("Employee not found", status=404)
         
-        return render(request, 'edit_employee_page.html', {'username': username,"employee_id":employee_id})
+        return render(request, 'edit_employee_page.html', {'username': username})
 
     return redirect("Login Page")
 

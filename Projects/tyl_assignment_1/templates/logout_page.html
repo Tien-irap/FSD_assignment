@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Logout Page</title>
+    {% load static %}
+    <link rel="stylesheet" href = "{% static 'logout_style.css' %}">
+    <link rel="shortcut icon" href="{% static 'logo.ico' %}"/>
 </head>
 <body>
-    Successfully Logged out, {{username}}
-    <a href="{% url 'Login Page' %}" class="button">Home</a>
+    <div class="container">
+        <h2>Logout</h2>
+        <h4>{{ username }}</h4>
+        <p>Successfully logged out</p>
+        <a href="{% url 'Login Page' %}" class="button">Home</a>
+    </div>
 </body>
 </html>

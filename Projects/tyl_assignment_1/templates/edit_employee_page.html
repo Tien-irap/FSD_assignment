@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee List</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'create_employee.css' %}">
+    <link rel="stylesheet" href="{% static 'edit_employee.css' %}">
     <link rel="shortcut icon" href="{% static 'logo.ico' %}"/>
 </head>
 <body>
@@ -22,25 +22,26 @@
         <h2>Employee List</h2>
     </div>
 
-    <div class="create-employee">
-        <h3>Create Employee</h3>
-        <form action="{% url 'Create Employee Page' %}" method="POST" enctype="multipart/form-data">
+    <div class="edit-employee">
+        <h3>Edit Employee</h3>
+        <form action="{% url 'Edit Employee Page' employee_id %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div>
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" placeholder="Leave empty if unchanged">
             </div>
             <div>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" placeholder="Leave empty if unchanged">
             </div>
             <div>
                 <label for="mobile">Mobile No.:</label>
-                <input type="text" id="mobile" name="mobile" required>
+                <input type="text" id="mobile" name="mobile" placeholder="Leave empty if unchanged">
             </div>
             <div>
                 <label for="designation">Designation:</label>
-                <select id="designation" name="designation" required>
+                <select id="designation" name="designation">
+                    <option value="">Leave empty if unchanged</option>
                     <option value="Manager">Manager</option>
                     <option value="HR">HR</option>
                     <option value="Sales">Sales</option>
@@ -48,7 +49,7 @@
             </div>
             <div>
                 <label>Gender:</label>
-                <label><input type="radio" name="gender" value="Male" required> Male</label>
+                <label><input type="radio" name="gender" value="Male"> Male</label>
                 <label><input type="radio" name="gender" value="Female"> Female</label>
                 <label><input type="radio" name="gender" value="Other"> Other</label>
             </div>
@@ -60,7 +61,7 @@
             </div>
             <div>
                 <label for="image">Image Upload:</label>
-                <input type="file" id="image" name="image" accept=".png, .jpg, .jpeg" required>
+                <input type="file" id="image" name="image" accept=".png, .jpg, .jpeg">
             </div>
             <div>
                 <button type="submit" class="button">Submit</button>
