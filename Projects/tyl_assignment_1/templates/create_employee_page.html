@@ -24,7 +24,7 @@
 
     <div class="create-employee">
         <h3>Create Employee</h3>
-        <form action="{% url 'Create Employee Page' %}" method="POST">
+        <form action="{% url 'Create Employee Page' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div>
                 <label for="name">Name:</label>
