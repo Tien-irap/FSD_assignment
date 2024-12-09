@@ -51,7 +51,7 @@ def employee_create_page(request):
             # Get Id
             newId = -1
             employeeIds = [entry['f_Id'] for entry in list(employee_details.find({}))]
-            maxEmployeeId = max(employeeIds)+1
+            maxEmployeeId = max(employeeIds)+1 if employeeIds else 1
             for id,r_id in zip(employeeIds, range(1,maxEmployeeId)):
                 if id != r_id:
                     newId = r_id
@@ -131,15 +131,21 @@ def edit_employee(request, employee_id):
 
             # Handle the image upload
             image = request.FILES.get('image')
+            # Define the directory to save the uploaded images
+            upload_dir = os.path.join(settings.STATICFILES_DIRS[0], 'employee_images')
+            os.makedirs(upload_dir, exist_ok=True)  # Create the directory if it doesn't exist
+            
             if image:
-                # Define the directory to save the uploaded images
-                upload_dir = os.path.join(settings.STATICFILES_DIRS[0], 'employee_images')
-                os.makedirs(upload_dir, exist_ok=True)  # Create the directory if it doesn't exist
-
                 # Create a unique filename for the uploaded image
                 f_Name = update_data.get('f_Name', employee['f_Name']).replace(' ', '_')  # Use new name if provided
                 unique_filename = f"{employee_id}-{f_Name}{os.path.splitext(image.name)[1]}"  # Preserve the original file extension
 
+                # Delete the old image if it exists
+                old_image_path = os.path.join(settings.STATICFILES_DIRS[0], employee.get('f_Image'))
+                if os.path.exists(old_image_path):
+                    os.unlink(old_image_path)
+
+                #Write Image to new path
                 image_path = os.path.join(upload_dir, unique_filename)
                 with open(image_path, 'wb+') as destination:
                     for chunk in image.chunks():
@@ -148,10 +154,8 @@ def edit_employee(request, employee_id):
                 # Store the file path in the update_data dictionary
                 update_data['f_Image'] = str(os.path.join('employee_images', unique_filename))
 
-                # Delete the old image if it exists
-                old_image_path = os.path.join(settings.STATICFILES_DIRS[0], employee.get('f_Image'))
-                if os.path.exists(old_image_path):
-                    os.unlink(old_image_path)
+                print(update_data)
+                print(image_path)
 
             # If only the name and ID are changed, rename the old image
             elif 'f_Name' in update_data and 'f_Id' in employee:
