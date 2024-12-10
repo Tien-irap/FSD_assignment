@@ -40,7 +40,7 @@ def employee_list_page(request):
     username = request.session.get('logged_user', False) 
     if username:
         return render(request,'employee_list.html',{'username':username,
-                                                    'employee_details':employee_details.find({})})
+                                                    'employee_details':sorted(employee_details.find({}),key=lambda x: x['f_Id'])})
     
     return redirect("Login Page")
 
@@ -52,7 +52,7 @@ def employee_create_page(request):
             newId = -1
             employeeIds = [entry['f_Id'] for entry in list(employee_details.find({}))]
             maxEmployeeId = max(employeeIds)+1 if employeeIds else 1
-            for id,r_id in zip(employeeIds, range(1,maxEmployeeId)):
+            for id,r_id in zip(sorted(employeeIds), range(1,maxEmployeeId)):
                 if id != r_id:
                     newId = r_id
                     break
@@ -154,8 +154,6 @@ def edit_employee(request, employee_id):
                 # Store the file path in the update_data dictionary
                 update_data['f_Image'] = str(os.path.join('employee_images', unique_filename))
 
-                print(update_data)
-                print(image_path)
 
             # If only the name and ID are changed, rename the old image
             elif 'f_Name' in update_data and 'f_Id' in employee:
