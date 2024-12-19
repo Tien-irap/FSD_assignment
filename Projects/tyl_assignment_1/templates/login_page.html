@@ -5,8 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     {% load static %}
-    <link rel="stylesheet" href = "{% static 'login_style.css' %}">
-    <link rel="shortcut icon" href="{% static 'logo.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/browser-safari.svg' %}">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Form Styles */
+        form h2 {
+            color: #76517f;
+            margin-bottom: 1.5em;
+        }
+
+        form label {
+            display: block;
+            text-align: left;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        form input[type="text"],
+        form input[type="password"],
+        form input[type="submit"] {
+            width: 100%;
+            padding: 0.75em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="password"]:focus {
+            border-color: #76517f;
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+        }
+
+        form input[type="submit"] {
+            background-color: #76517f;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #76517f;
+        }
+
+        /* Error Message */
+        .error-message {
+            margin-bottom: 1em;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,17 +90,16 @@
         <form method="post">
             {% csrf_token %}
             {% if error_message %}
-                <div class="error-message" style="color: red;">
+                <div class="error-message">
                     {{ error_message }}
                 </div>
             {% endif %}
             <h2>Login</h2>
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <label type="submit" value="Login">
-            <input type="submit" id="submit" name="submit">
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <input type="submit" value="Login">
         </form>
     </div>
 </body>

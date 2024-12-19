@@ -5,15 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logout Page</title>
     {% load static %}
-    <link rel="stylesheet" href = "{% static 'logout_style.css' %}">
-    <link rel="shortcut icon" href="{% static 'logo.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'logout_style.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/browser-safari.svg' %}">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Heading */
+        .container h2 {
+            color: #76517f;
+            margin-bottom: 1em;
+        }
+
+        .container h4 {
+            color: #333;
+            margin-bottom: 0.5em;
+        }
+
+        /* Paragraph */
+        .container p {
+            color: #666;
+            font-size: 1em;
+            margin-bottom: 1.5em;
+        }
+
+        /* Button */
+        .container .button {
+            display: inline-block;
+            background-color: #76517f;
+            color: white;
+            padding: 0.75em 1.5em;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .container .button:hover {
+            background-color: #76517f;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h2>Logout</h2>
+        <h2>Logout Successful</h2>
         <h4>{{ username }}</h4>
-        <p>Successfully logged out</p>
-        <a href="{% url 'Login Page' %}" class="button">Home</a>
+        <p>You have successfully logged out. Thank you for using the platform!</p>
+        <a href="{% url 'Login Page' %}" class="button">Return to Login</a>
     </div>
 </body>
 </html>

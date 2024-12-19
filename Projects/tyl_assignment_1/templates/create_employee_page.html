@@ -3,10 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee List</title>
+    <title>Create Employee</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'create_employee.css' %}">
-    <link rel="shortcut icon" href="{% static 'logo.ico' %}"/>
+    <link rel="shortcut icon" href="{% static 'logo.ico' %}">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        /* Navbar */
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background-color: #4CAF50;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            margin: 0;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 1em 1.5em;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #45a049;
+        }
+
+        /* Dashboard Bar */
+        .dashboard-bar {
+            background-color: #f4f4f9;
+            padding: 1em 2em;
+            border-bottom: 2px solid #4CAF50;
+            text-align: center;
+        }
+
+        .dashboard-bar h2 {
+            color: #333;
+            margin: 0;
+        }
+
+        /* Create Employee Form */
+        .create-employee {
+            max-width: 600px;
+            margin: 2em auto;
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .create-employee h3 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 1em;
+        }
+
+        .create-employee form div {
+            margin-bottom: 1em;
+        }
+
+        .create-employee form label {
+            display: block;
+            margin-bottom: 0.5em;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .create-employee form input[type="text"],
+        .create-employee form input[type="email"],
+        .create-employee form input[type="file"],
+        .create-employee form select {
+            width: 100%;
+            padding: 0.75em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .create-employee form input[type="radio"],
+        .create-employee form input[type="checkbox"] {
+            margin-right: 0.5em;
+        }
+
+        .create-employee form button {
+            width: 100%;
+            padding: 0.75em;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .create-employee form button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar">
@@ -19,11 +128,11 @@
     </div>
 
     <div class="dashboard-bar">
-        <h2>Employee List</h2>
+        <h2>Create Employee</h2>
     </div>
 
     <div class="create-employee">
-        <h3>Create Employee</h3>
+        <h3>Create New Employee</h3>
         <form action="{% url 'Create Employee Page' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div>
